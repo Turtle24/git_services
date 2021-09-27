@@ -13,5 +13,4 @@ def setup_git_server():
 
 
 if __name__ == "__main__":
-    container = setup_git_server()
-    container.stop()
+    setup_git_server()

@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  git:
+    image: jkarlos/git-server-docker
+    ports:
+      - "2222:22"
+    expose:
+      - 2222
+    volumes:
+      - ~/git-server/keys:/git-server/keys
+      - ~/git-server/repos:/git-server/repos
+  
+  bitbucket:
+    image: atlassian/bitbucket-server:7.14
+    ports:
+      - "4000"
+    volumes:
+      - ~/git-server/keys:/git-server/keys
+      - ~/git-server/repos:/git-server/repos
+    depends_on:
+      git

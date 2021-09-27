@@ -1,0 +1,3 @@
+FROM git-server-docker:latest
+
+CMD [ "docker", "exec", "-t", "-p 2222:22", "-v ~/git-server/keys:/git-server/keys", "-v ~/git-server/repos:/git-server/repos" ]
